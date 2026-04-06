@@ -1,6 +1,7 @@
 #!/usr/bin/env bun
 
 import { $ } from "bun"
+import { Script } from "@opencode-ai/script"
 import fs from "fs"
 import path from "path"
 import { fileURLToPath } from "url"
@@ -63,6 +64,7 @@ await Bun.build({
   external: ["jsonc-parser"],
   define: {
     OPENCODE_MIGRATIONS: JSON.stringify(migrations),
+    OPENCODE_CHANNEL: `'${Script.channel}'`,
   },
 })
 
